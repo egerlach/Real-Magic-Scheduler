@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	before_filter :authenticate, :only => [:edit, :update, :change_password, :update_password]
 	before_filter :correct_user, :only => [:edit, :update, :change_password, :update_password]
-	before_filter :admin, :only => [:create, :new, :primary, :suspended, :eot, :admin, :destroy]
+	before_filter :admin, :only => [:create, :new, :primary, :suspended, :eot, :admin, :destroy, :set_cas, :update_cas]
 
 	def create
 		@user = User.new(params[:user])
@@ -46,7 +46,17 @@ class UsersController < ApplicationController
 			render 'edit'
 		end
 	end
+  def set_cas
+    @user = User.find(params[:id])
+    @title = "Set CAS"
+  end
 
+  def update_cas
+    @user = User.find(params[:id])
+    debugger
+    @user.update_attribute('casid', params[:user]['casid'])
+    redirect_to users_path
+  end
 	def show
 		@user = User.find(params[:id])
 		@title = @user.name
@@ -155,6 +165,6 @@ class UsersController < ApplicationController
 
 		def correct_user
 			@user = User.find(params[:id])
-			redirect_to(root_path) unless @user == current_user
+			redirect_to(root_path) unless @user == current_user || @current_user.admin? 
 		end
 end

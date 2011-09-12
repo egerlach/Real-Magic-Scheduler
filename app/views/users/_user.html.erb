@@ -1,5 +1,6 @@
 <tr>
   <td><%= "#{user.first_name} #{user.last_name}" %></td>
+  <td><%= link_to user.casid || 'nil', set_cas_user_path(user) %></td>
 <% shift_types.each do |n| %>
   <td><%= format("%7.2f", user.total_hours(n)) %></td>
 <% end %>

@@ -7,6 +7,7 @@ gem 'will_paginate', '3.0.pre2'
 group :development do
   gem 'rspec-rails', '2.1.0'
   gem 'annotate-models'
+  gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
 group :test do
