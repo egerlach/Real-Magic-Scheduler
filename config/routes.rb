@@ -11,6 +11,8 @@ Tutorial::Application.routes.draw do
       put 'suspended'
       put 'make_admin'
       get 'edit_password'
+      get 'set_cas'
+      put 'update_cas'
     end  
   end
   resources :sessions, :only => [:new, :create, :destroy, :update, :edit]

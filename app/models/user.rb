@@ -19,7 +19,7 @@
 require 'digest'
 class User < ActiveRecord::Base
 	attr_accessor :password
-	attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
+	attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :casid
 	
 	before_save :encrypt_password
 	
