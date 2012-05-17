@@ -3,7 +3,7 @@ set :repository,  "https://github.com/feds-sdn/Real-Magic-Scheduler.git"
 
 set :scm, :git
 
-set :bundle_cmd, "/var/lib/gems/1.8/bin/bundle"
+set :bundle_cmd, "/var/lib/gems/1.9.1/bin/bundle"
 
 set :use_sudo, false
 
